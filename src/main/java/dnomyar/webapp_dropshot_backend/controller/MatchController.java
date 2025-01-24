@@ -5,10 +5,7 @@ import dnomyar.webapp_dropshot_backend.repository.MatchRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -26,7 +23,7 @@ public class MatchController {
         this.matchRepository = matchRepository;
     }
 
-    @GetMapping
+    @GetMapping("")
     public List<Match> getAllMatches() {
         return matchRepository.findAll();
     }
@@ -40,16 +37,13 @@ public class MatchController {
         return match.get();
     }
 
-//    public Match createMatch(Match match) {
-//        return matchRepository.save(match);
-//    }
-//
-//    public Match updateMatch(Match match) {
-//        return matchRepository.save(match);
-//    }
-//
-//    public void deleteMatch(Integer id) {
-//        matchRepository.deleteById(id);
-//    }
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("")
+    public void createMatch(@RequestBody Match match) {
+        if (match == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Match record is null");
+        }
+        matchRepository.createMatch(match);
+    }
 
 }
