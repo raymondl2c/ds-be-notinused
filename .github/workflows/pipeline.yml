@@ -32,7 +32,8 @@ jobs:
         uses: mavrosxristoforos/get-xml-info@2.0
         with:
           xml-file: 'pom.xml'
-          xpath: '//project/version'
+          xpath: '//*[local-name()="project.version"]'
+#          xpath: '//*[local-name()="project"]/*[local-name()="version"]/text() pom.xml'
 
       - name: Build Docker Image
         uses: docker/build-push-action@v6
