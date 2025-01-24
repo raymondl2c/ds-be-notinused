@@ -34,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          dockerfile: Dockerfile
+          file: Dockerfile
           push: false
           tags: ${{ secrets.DOCKER_HUB_USERNAME_BE }}/webapp-dropshot-backend:${{ env.DEPLOYMENT_TAG }}
 
@@ -48,6 +48,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          dockerfile: Dockerfile
+          file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME_BE }}/webapp-dropshot-backend:${{ env.DEPLOYMENT_TAG }}
