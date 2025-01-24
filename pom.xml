@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>dnomyar</groupId>
 	<artifactId>webapp-dropshot-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>webapp-dropshot-backend</name>
 	<description>Dropshot Webapp for Sports Scoring System</description>
 	<url/>
